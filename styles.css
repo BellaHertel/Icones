@@ -1,0 +1,105 @@
+@import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
+
+/* Variáveis */
+:root {
+  --cor-clara: rgb(81, 179, 224);
+}
+
+body {
+  margin: 0;
+  background-color: #333333;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+}
+
+
+
+/* Tirar estilos da lista */
+ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+
+li {
+  width: 100px;
+  text-align: center;
+}
+
+i,
+input {
+  display: block;
+  text-align: center;
+}
+
+i {
+  font-size: 30px;
+  transition: 0.5s;
+}
+
+input {
+  display: none;
+}
+
+/* Estilo para Elementos Pressionados */
+.check {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(#000, #333);
+  border-radius: 50%;
+  margin: 10px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Antes de Pressionar */
+.check::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #1b1b1b;
+  border-radius: 50%;
+  transition: 0.5s;
+  z-index: 3;
+}
+
+/* Quando Precionado */
+.check::after {
+  content: "";
+  position: absolute;
+  background-color: #222;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border-radius: 50%;
+  z-index: 2;
+  border: 2px solid #161616;  
+}
+
+/* Para quando o input estiver marcado */
+input:checked~.check::before {
+  background-color: var(--cor-clara);
+  box-shadow: 
+    0 0 10px var(--cor-clara),
+    0 0 15px var(--cor-clara),
+    0 0 20px var(--cor-clara),
+    0 0 25px var(--cor-clara),
+    0 0 2px rgba(0, 176, 255, 0.1);
+}
+
+i {
+  color: #222;
+}
+
+/* Altera cor do icone */
+input:checked~i {
+  color: var(--cor-clara);
+}
